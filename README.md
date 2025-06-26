@@ -15,3 +15,8 @@ Biometric Authentication
 ## API key
 API keys are stored using `gradle.properties` and injected via `manifestPlaceholders`.
 `google-services.json` and `gradle.properties` are excluded from version control via `.gitignore`.
+
+In gradle.properties, set your API keys:
+MAPS_API_KEY=YOUR_MAPS_API_KEY
+PLACES_API_KEY=YOUR_PLACES_API_KEY
+WEATHER_API_KEY=YOUR_WEATHER_API_KEY
