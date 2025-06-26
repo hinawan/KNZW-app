@@ -25,6 +25,7 @@ In gradle.properties, set your API keys:
 - Login via Firebase Auth and BiometricPrompt
 - Capture travel memories with image and GPS
 - Find nearby spots like food and bus stations using Google Places API
-- Show some tourist spots and weather in Kanazawa
+- Show some tourist spots
+- Weather forecast in Kanazawa
 - Save and sync travel notes via Firebase Realtime Database
 - Alerts user when device battery drops below 30% with a system notification
