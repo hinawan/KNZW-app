@@ -20,3 +20,10 @@ In gradle.properties, set your API keys:
 MAPS_API_KEY=YOUR_MAPS_API_KEY
 PLACES_API_KEY=YOUR_PLACES_API_KEY
 WEATHER_API_KEY=YOUR_WEATHER_API_KEY
+
+## Features
+Login via Firebase Auth and BiometricPrompt
+Capture travel memories with image and GPS
+Find nearby spots like food and bus stations using Google Places API
+Show some tourist spots and weather in Kanazawa
+Save and sync travel notes via Firebase Realtime Database
