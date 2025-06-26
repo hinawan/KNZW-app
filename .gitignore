@@ -1,0 +1,25 @@
+# Default ignored files
+/shelf/
+/app/build/
+/.gradle/
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/workspace.xml
+
+/build
+*.apk
+*.aar
+
+.idea/
+*.iml
+
+*.swp
+*.bak
+*~
+
+local.properties
+gradle.properties
+app/google-services.json
+
+

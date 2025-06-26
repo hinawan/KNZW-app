@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop"
+        android:alpha="0.2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center_horizontal">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/holo_green_dark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Logout"
+                android:textColor="@android:color/white"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tvWeather"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:text="Kanazawa Weather: Loading..."
+                android:textColor="@android:color/white"
+                android:padding="8dp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textViewWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Kanazawa Explorer!"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <ImageView
+            android:id="@+id/imageViewMain"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/kanazawa_photo"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Main Kanazawa image" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:useDefaultMargins="true">
+
+            <Button
+                android:id="@+id/btnTravelNote"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="Travel Note" />
+
+            <Button
+                android:id="@+id/btnNearby"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="Find Nearby" />
+
+            <Button
+                android:id="@+id/btnTouristSpots"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="Tourist Spots" />
+
+            <Button
+                android:id="@+id/btnTravelMemory"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="Travel Memory" />
+
+        </GridLayout>
+    </LinearLayout>
+</FrameLayout>
