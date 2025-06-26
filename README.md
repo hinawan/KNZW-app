@@ -11,3 +11,7 @@ OpenWeatherMap API
 GPS / Location
 Camera
 Biometric Authentication
+
+## API key
+API keys are stored using `gradle.properties` and injected via `manifestPlaceholders`.
+`google-services.json` and `gradle.properties` are excluded from version control via `.gitignore`.
