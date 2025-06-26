@@ -19,24 +19,24 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
         void onItemClick(LatLng latLng);
     }
 
-    private final List<Place> placeList;
+    private final List<Place> places;
     private final OnItemClickListener listener;
 
-    public NearbyAdapter(List<Place> placeList, OnItemClickListener listener) {
-        this.placeList = placeList;
+    public NearbyAdapter(List<Place> places, OnItemClickListener listener) {
+        this.places = places;
         this.listener = listener;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
+        TextView tvPlaceName;
 
-        public ViewHolder(View view) {
-            super(view);
-            textView = view.findViewById(android.R.id.text1);
+        public ViewHolder(View itemView) {
+            super(itemView);
+            tvPlaceName = itemView.findViewById(R.id.tvPlaceName);
         }
 
         public void bind(Place place, OnItemClickListener listener) {
-            textView.setText(place.getName());
+            tvPlaceName.setText(place.getName());
             itemView.setOnClickListener(v -> {
                 if (place.getLatLng() != null) {
                     listener.onItemClick(place.getLatLng());
@@ -48,18 +48,17 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.ViewHolder
     @NonNull
     @Override
     public NearbyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_1, parent, false);
-        return new ViewHolder(v);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nearby_place, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull NearbyAdapter.ViewHolder holder, int position) {
-        holder.bind(placeList.get(position), listener);
+        holder.bind(places.get(position), listener);
     }
 
     @Override
     public int getItemCount() {
-        return placeList.size();
+        return places.size();
     }
 }
