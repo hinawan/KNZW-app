@@ -1,12 +1,14 @@
 package com.example.knzwapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.RectangularBounds;
 import com.google.android.libraries.places.api.net.FetchPlaceRequest;
 import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest;
 import com.google.android.libraries.places.api.net.PlacesClient;
@@ -42,6 +45,7 @@ public class FindNearby extends AppCompatActivity implements OnMapReadyCallback 
     private GoogleMap mMap;
     private EditText etSearch;
     private Button btnSearch;
+    ImageButton topButton;
 
     private FusedLocationProviderClient fusedLocationClient;
     private PlacesClient placesClient;
@@ -58,6 +62,7 @@ public class FindNearby extends AppCompatActivity implements OnMapReadyCallback 
 
         etSearch = findViewById(R.id.etSearch);
         btnSearch = findViewById(R.id.btnSearch);
+        topButton = findViewById(R.id.btnTop);
 
         rvNearby = findViewById(R.id.rvNearbyLandmarks);
         rvNearby.setLayoutManager(new LinearLayoutManager(this));
@@ -88,6 +93,8 @@ public class FindNearby extends AppCompatActivity implements OnMapReadyCallback 
                 Toast.makeText(this, "Please enter a search keyword", Toast.LENGTH_SHORT).show();
             }
         });
+
+        topButton.setOnClickListener(v -> startActivity(new Intent(FindNearby.this, MainActivity.class)));
     }
 
     private void searchNearby(String keyword) {
@@ -98,11 +105,12 @@ public class FindNearby extends AppCompatActivity implements OnMapReadyCallback 
 
         FindAutocompletePredictionsRequest request = FindAutocompletePredictionsRequest.builder()
                 .setQuery(keyword)
-                .setLocationBias(com.google.android.libraries.places.api.model.RectangularBounds.newInstance(
-                        new LatLng(currentLatLng.latitude - 0.05, currentLatLng.longitude - 0.05),
-                        new LatLng(currentLatLng.latitude + 0.05, currentLatLng.longitude + 0.05)
+                .setLocationRestriction(RectangularBounds.newInstance(
+                        new LatLng(currentLatLng.latitude - 0.045, currentLatLng.longitude - 0.045),
+                        new LatLng(currentLatLng.latitude + 0.045, currentLatLng.longitude + 0.045)
                 ))
                 .build();
+
 
         placesClient.findAutocompletePredictions(request)
                 .addOnSuccessListener(response -> {
