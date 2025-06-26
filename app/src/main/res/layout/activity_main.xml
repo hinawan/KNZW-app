@@ -103,6 +103,13 @@
                 android:backgroundTint="@android:color/holo_green_dark"
                 android:text="Travel Memory" />
 
+            <Button
+                android:id="@+id/btnWeather"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="Weather Forecast" />
+
         </GridLayout>
     </LinearLayout>
 </FrameLayout>

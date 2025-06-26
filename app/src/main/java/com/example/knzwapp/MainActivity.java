@@ -1,6 +1,5 @@
 package com.example.knzwapp;
 
-import com.example.knzwapp.BuildConfig;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -34,7 +33,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button travelNote, findNearby, touristSpots, travelMemory, btnLogout;
+    Button travelNote, findNearby, touristSpots, travelMemory, weather, btnLogout;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private TextView tvWeather;
     String weatherKey = BuildConfig.WEATHER_API_KEY;
@@ -55,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         findNearby = findViewById(R.id.btnNearby);
         touristSpots = findViewById(R.id.btnTouristSpots);
         travelMemory = findViewById(R.id.btnTravelMemory);
+        weather = findViewById(R.id.btnWeather);
         btnLogout = findViewById(R.id.btnLogout);
         tvWeather = findViewById(R.id.tvWeather);
 
@@ -77,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
         travelMemory.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, TravelMemory.class);
+            startActivity(intent);
+        });
+
+        weather.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, WeatherForecast.class);
             startActivity(intent);
         });
 
@@ -177,5 +182,5 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         unregisterReceiver(batteryReceiver);
     }
-    
+
 }
